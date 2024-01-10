@@ -1,12 +1,12 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.ts",
-  "type": "module",
+  "main": "index.js",
+  "target":"ES2016",
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/index.js",
+    "start": "nodemon",
     "dev": "nodemon index.ts"
   },
 
