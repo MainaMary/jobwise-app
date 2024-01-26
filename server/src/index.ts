@@ -15,26 +15,18 @@ app.post("/", (req, res) => {
 app.get("/", (req, res) => {
   console.log("Server working");
 });
+//Not found middleware
+app.use("*", (req, res) => {
+  res.status(404).json({ msg: "Not found" });
+});
+//Error middleware
+app.use((req, res, next) => {
+  res.status(500).json({ msg: "Something went wrong" });
+});
 app.listen(port, () => {
   console.log(`Server running successfully on port ${port}`);
 });
-// import express, { Express, Request, Response } from "express";
-// import dotenv from "dotenv";
-// dotenv.config();
-// const app: Express = express();
 
-// app.get("/", (req: Request, res: Response) => {
-//   res.send("Express + Typescript server");
-// });
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
-console.log("Hello world hello");
-function addNumbers(a: number, b: number) {
-  return a + b;
-}
-addNumbers(2, 3);
-console.log(addNumbers(5, 6));
 // build a simple login application
 // with username and password
 // registration screen
